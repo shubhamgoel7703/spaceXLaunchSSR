@@ -1,0 +1,46 @@
+<nav>
+  <div>
+
+    <div class="box p-3 mb-4">
+
+      <div class="row p-3">
+
+        <img class="image-container" [src]="spaceXLaunchObject.imageUrl">
+        <!-- https://img.favpng.com/4/18/20/kennedy-space-center-launch-complex-39-spacex-crs-1-bulgariasat-1-falcon-9-png-favpng-PQUf074yNNWdrHxXevDTXxN8z.jpg -->
+        <!-- https://www.seradata.com/SSI/wp-content/uploads/2014/01/SpaceX-Logo-620x149.jpg -->
+        <p class="font-weight-bold pt-2 blueColor">{{spaceXLaunchObject.mission_name}} #{{spaceXLaunchObject.flight_number}}</p>
+
+        <div class="fullWidth">
+          <p class="font-weight-bold">Mission ids:</p>
+          <ul>
+            <li *ngFor="let item of spaceXLaunchObject.mission_id">{{item}}</li>
+          </ul>
+        </div>
+
+        <div class="fullWidth">
+          <p>
+            <span class="font-weight-bold">Launch Year:
+            </span> {{spaceXLaunchObject.launch_year}}</p>
+        </div>
+
+
+        <div class="fullWidth">
+          <p>
+            <span class="font-weight-bold">Successful Launch:
+            </span> {{spaceXLaunchObject.launch_success}}</p>
+        </div>
+
+
+        <div class="fullWidth">
+          <p>
+            <span class="font-weight-bold">Successful Landing:
+            </span> {{spaceXLaunchObject.land_success}}</p>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</nav>

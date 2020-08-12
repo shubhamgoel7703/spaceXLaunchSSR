@@ -1,0 +1,24 @@
+.image-container {
+    height: 170px;
+    width: 100%;
+    /* object-fit: cover; */
+ 
+}
+
+.fullWidth{
+width: 100%;
+}
+
+.inlineDisplay{
+    display: inline;
+}
+
+.box:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  .blueColor{
+      color: #0066CC;
+  }
+  

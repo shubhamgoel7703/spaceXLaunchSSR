@@ -1,0 +1,65 @@
+<nav>
+  <div>
+    <div class="box p-3">
+
+      <div class="row p-3">
+        <div class="col-md-12">
+          <h5>Filters</h5>
+        </div>
+
+        <div class="col-md-12 text-center underlineText mt-3">
+          <p class="p-0 m-0">Launch Year</p>
+        </div>
+        <div class="col-md-12 pt-3">
+
+          <div class="row">
+
+            <div class="fullButtonWidth col-6 text-center p-2 " *ngFor="let item of yearsArray">
+              <button class="btn buttonClass smallButton" [ngClass]="(currentSelectedYear==item)?'selectedButtonClass':'buttonClass'" (click)="yearChangeEvent(item)">{{item}}</button>
+            </div>
+
+            <!-- <div class="col-md-6 text-center">
+              <button class="btn btn-success ">2013</button>
+            </div> -->
+          </div>
+        </div>
+
+
+        <div class="col-md-12 text-center underlineText mt-3">
+          <p class="p-0 m-0">Successful Launch</p>
+        </div>
+        <div class="col-md-12 pt-3">
+
+          <div class="row">
+            <div class="fullButtonWidth col-6 text-center pb-3">
+              <button class="btn buttonClass" [ngClass]="(successfulLaunchFlag==true)?'selectedButtonClass':'buttonClass'" (click)="successfulLaunchChangeEvent(true)">True</button>
+            </div>
+            <div class="fullButtonWidth col-6 text-center">
+              <button class="btn buttonClass" [ngClass]="(successfulLaunchFlag==false)?'selectedButtonClass':'buttonClass'" (click)="successfulLaunchChangeEvent(false)">False</button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-12 text-center underlineText mt-3">
+          <p class="p-0 m-0">Successful Landing</p>
+        </div>
+        <div class="col-md-12 pt-3">
+
+          <div class="row">
+            <div class="fullButtonWidth col-6 text-center pb-3">
+              <button class="btn buttonClass" [ngClass]="(successfulLandingFlag==true)?'selectedButtonClass':'buttonClass'" (click)="successfulLandingChangeEvent(true)">True</button>
+            </div>
+            <div class="fullButtonWidth col-6 text-center">
+              <button class="btn buttonClass" [ngClass]="(successfulLandingFlag==false)?'selectedButtonClass':'buttonClass'" (click)="successfulLandingChangeEvent(false)">False</button>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</nav>

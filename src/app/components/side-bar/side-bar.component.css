@@ -1,0 +1,22 @@
+.buttonClass{
+  color: black;
+  background-color: #c5df99;
+}
+
+.selectedButtonClass{
+  background-color: #7fb804;
+}
+
+button:hover{
+  background-color: #7fb804;
+}
+
+button:active{
+  background-color: #7fb804;
+  box-shadow: 0 0 0 0.2rem #c5df99;
+}
+
+button:focus{
+  background-color: #7fb804;
+  box-shadow: 0 0 0 0.2rem #c5df99;
+}

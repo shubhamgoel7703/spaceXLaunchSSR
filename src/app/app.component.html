@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="p-3">
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+
+<div class="row p-3">
+
+  <app-side-bar class="col-md-2" (returnFilteredListEvent)="updateSpaceXLaunchListEvent($event)"></app-side-bar>
+
+  <section class="extraSectionPadding  col-md-10 ">
+
+    <div class="row">
+
+      <ng-container *ngFor="let object of spaceXLaunchList">
+        <app-main-page-item [spaceXLaunchObject]="object" class="col-md-3 columnSizeToHalfWidthForTablet"></app-main-page-item>
+      </ng-container>
+
+    </div>
+
+  </section>
+
+
+</div>
+
+<div class="row text-center">
+  <div class="col-12">
+    <p>
+      <span class="font-weight-bold">Developed By: </span> Shubham</p>
+  </div>
+</div>
