@@ -24,28 +24,19 @@ export class AppComponent implements OnInit {
 
     this.spaceXApiService.getInitialList().then(
       (resp: any) => {
-        // console.log(resp);
-        for (let i = 0; i < resp.body.length; i++) {
 
-          // console.log("obj ", resp.body[i])
-
-          let obj: any = {};
-          obj.flight_number = resp.body[i].flight_number;
-          obj.imageUrl = resp.body[i].links.mission_patch ? resp.body[i].links.mission_patch : '';
-          obj.land_success = resp.body[i].rocket.first_stage.cores[0].land_success;
-          obj.launch_success = resp.body[i].launch_success;
-          obj.launch_year = resp.body[i].launch_year;
-          obj.mission_id = resp.body[i].mission_id;
-          obj.mission_name = resp.body[i].mission_name;
-
-          // let randomNumber = Math.floor(Math.random() * 101);
-          // let index = randomNumber > 50 ? 1 : 0;
-          // obj.imageUrl = this.link[index];
-
-          this.spaceXLaunchList.push(obj);
+        for (let i = 0; i < 8; i++) {
+          this.spaceXLaunchList.push(this.creatingSpaceXObject(resp.body[i]));
         }
-        // console.log(this.spaceXLaunchList);
-        //  this.spaceXLaunchList = resp;
+
+        let tempSpaceXLaunchList = [];
+
+        for (let i = 8; i < resp.body.length; i++) {
+          tempSpaceXLaunchList.push(this.creatingSpaceXObject(resp.body[i]));
+        }
+
+        this.spaceXLaunchList = [...this.spaceXLaunchList, ...tempSpaceXLaunchList];
+
       }
     ).catch(
       error => {
@@ -54,6 +45,19 @@ export class AppComponent implements OnInit {
     )
   }
 
+
+  //resp.body[i]
+  creatingSpaceXObject(object) {
+    let obj: any = {};
+    obj.flight_number = object.flight_number;
+    obj.imageUrl = object.links.mission_patch ? object.links.mission_patch : '';
+    obj.land_success = object.rocket.first_stage.cores[0].land_success;
+    obj.launch_success = object.launch_success;
+    obj.launch_year = object.launch_year;
+    obj.mission_id = object.mission_id;
+    obj.mission_name = object.mission_name;
+    return obj;
+  }
 
   updateSpaceXLaunchListEvent(filteredSpaceXList) {
     this.spaceXLaunchList = filteredSpaceXList;
