@@ -51,7 +51,7 @@ export class SideBarComponent implements OnInit {
 
         this.filteredSpaceXLaunchList = [];
 
-        for (let i = 0; i < resp.length; i++) {
+        for (let i = 0; i < resp.body.length; i++) {
 
           console.log("obj ", resp[i])
 
