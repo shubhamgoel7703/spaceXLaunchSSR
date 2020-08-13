@@ -28,7 +28,7 @@
     "serve:prerender": "cd dist/browser && http-server",
     "serve:ssr": "node dist/server",
     "start:heroku": "cd dist/browser && http-server",
-    "postinstall": "npm run build:ssr"
+    "postinstall": "npm run build:prerender"
   },
   "pre-commit": [],
   "private": true,
