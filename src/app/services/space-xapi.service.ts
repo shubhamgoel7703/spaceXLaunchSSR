@@ -13,10 +13,10 @@ export class SpaceXApiService extends BaseService {
   }
 
 
-  getInitialList() {
+  getInitialList(limit) {
     return new Promise((resolve, reject) => {
       try {
-        let apiName = 'https://api.spacexdata.com/v3/launches?limit=100';
+        let apiName = 'https://api.spacexdata.com/v3/launches?limit=' + limit;
         this.getCall(apiName).subscribe((data) => {
           if (data != null && data != undefined) {
             resolve(data);

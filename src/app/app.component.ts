@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { SpaceXApiService } from './services/space-xapi.service';
 import { ISpaceXLaunchObject } from './interfaces/ISpaceXLaunchObject';
 
@@ -19,24 +19,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
-
-    this.spaceXApiService.getInitialList().then(
+    this.spaceXApiService.getInitialList(100).then(
       (resp: any) => {
-
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 100; i++) {
           this.spaceXLaunchList.push(this.creatingSpaceXObject(resp.body[i]));
         }
-
-        let tempSpaceXLaunchList = [];
-
-        for (let i = 8; i < resp.body.length; i++) {
-          tempSpaceXLaunchList.push(this.creatingSpaceXObject(resp.body[i]));
-        }
-
-        this.spaceXLaunchList = [...this.spaceXLaunchList, ...tempSpaceXLaunchList];
-
       }
     ).catch(
       error => {
@@ -44,6 +31,34 @@ export class AppComponent implements OnInit {
       }
     )
   }
+
+
+  // firstScrollFlag = false;
+  // @HostListener('window:scroll', ['$event']) // for window scroll events
+  // onScroll(event) {
+  //   if (!this.firstScrollFlag) {
+  //     console.log("scroll")
+  //     this.callRemainingObjects();
+  //     this.firstScrollFlag = true;
+  //   }
+  // }
+
+  // //call remaining objects
+  // callRemainingObjects() {
+  //   this.spaceXApiService.getInitialList(100).then(
+  //     (resp: any) => {
+
+  //       for (let i = 8; i < 100; i++) {
+  //         this.spaceXLaunchList.push(this.creatingSpaceXObject(resp.body[i]));
+  //       }
+
+  //     }
+  //   ).catch(
+  //     error => {
+  //       console.error("error ", error);
+  //     }
+  //   )
+  // }
 
 
   //resp.body[i]
