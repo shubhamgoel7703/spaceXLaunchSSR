@@ -27,8 +27,8 @@
     "generate:prerender": "cd dist && node prerender",
     "serve:prerender": "cd dist/browser && http-server",
     "serve:ssr": "node dist/server",
-    "start:heroku": "cd dist/browser && http-server",
-    "postinstall": "npm run build:prerender"
+    "start:heroku": "node dist/server",
+    "postinstall": "npm run build:ssr"
   },
   "pre-commit": [],
   "private": true,
@@ -46,6 +46,7 @@
     "@nguniversal/common": "^6.0.0",
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
+    "http-server": "^0.10.0",
     "core-js": "^2.4.1",
     "express": "^4.15.2",
     "bootstrap": "4.5.2",
@@ -60,7 +61,6 @@
     "@angular/language-service": "7.1.4",
     "@types/node": "^8.0.30",
     "codelyzer": "^4.0.2",
-    "http-server": "^0.10.0",
     "pre-commit": "^1.2.2",
     "ts-loader": "^4.2.0",
     "tslint": "^5.7.0",
