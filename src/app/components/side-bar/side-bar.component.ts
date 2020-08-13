@@ -56,13 +56,13 @@ export class SideBarComponent implements OnInit {
           console.log("obj ", resp[i])
 
           let obj: any = {};
-          obj.flight_number = resp[i].flight_number;
-          obj.imageUrl = resp[i].links.mission_patch;
-          obj.land_success = resp[i].rocket.first_stage.cores[0].land_success;
-          obj.launch_success = resp[i].launch_success;
-          obj.launch_year = resp[i].launch_year;
-          obj.mission_id = resp[i].mission_id;
-          obj.mission_name = resp[i].mission_name;
+          obj.flight_number = resp.body[i].flight_number;
+          obj.imageUrl = resp.body[i].links.mission_patch ? resp.body[i].links.mission_patch : '';
+          obj.land_success = resp.body[i].rocket.first_stage.cores[0].land_success;
+          obj.launch_success = resp.body[i].launch_success;
+          obj.launch_year = resp.body[i].launch_year;
+          obj.mission_id = resp.body[i].mission_id;
+          obj.mission_name = resp.body[i].mission_name;
 
           this.filteredSpaceXLaunchList.push(obj);
         }

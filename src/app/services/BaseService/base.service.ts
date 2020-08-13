@@ -13,7 +13,16 @@ export class BaseService {
   }
 
   getCall(apiUrl): Observable<HttpResponse<Object>> {
-    return this.http.get<HttpResponse<Object>>(apiUrl).pipe(map((observe: HttpResponse<any>) => {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+
+        // 'Access-Control-Allow-Origin': '*'
+
+      }),
+      observe: 'response' as 'response'
+    };
+    return this.http.get<HttpResponse<Object>>(apiUrl, httpOptions).pipe(map((observe: HttpResponse<any>) => {
       return observe;
     }))
     // return this.http.get(environment.baseUrl + apiUrl, { observe: 'response' });

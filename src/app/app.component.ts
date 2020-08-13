@@ -25,18 +25,18 @@ export class AppComponent implements OnInit {
     this.spaceXApiService.getInitialList().then(
       (resp: any) => {
         console.log(resp);
-        for (let i = 0; i < resp.length; i++) {
+        for (let i = 0; i < resp.body.length; i++) {
 
-          console.log("obj ", resp[i])
+          console.log("obj ", resp.body[i])
 
           let obj: any = {};
-          obj.flight_number = resp[i].flight_number;
-          obj.imageUrl = resp[i].links.mission_patch;
-          obj.land_success = resp[i].rocket.first_stage.cores[0].land_success;
-          obj.launch_success = resp[i].launch_success;
-          obj.launch_year = resp[i].launch_year;
-          obj.mission_id = resp[i].mission_id;
-          obj.mission_name = resp[i].mission_name;
+          obj.flight_number = resp.body[i].flight_number;
+          obj.imageUrl = resp.body[i].links.mission_patch ? resp.body[i].links.mission_patch : '';
+          obj.land_success = resp.body[i].rocket.first_stage.cores[0].land_success;
+          obj.launch_success = resp.body[i].launch_success;
+          obj.launch_year = resp.body[i].launch_year;
+          obj.mission_id = resp.body[i].mission_id;
+          obj.mission_name = resp.body[i].mission_name;
 
           // let randomNumber = Math.floor(Math.random() * 101);
           // let index = randomNumber > 50 ? 1 : 0;

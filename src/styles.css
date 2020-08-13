@@ -21,6 +21,7 @@
 
 body{
 background-color: #F4F4F4;
+/* max-width: 100%; */
 overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
