@@ -24,10 +24,10 @@ export class AppComponent implements OnInit {
 
     this.spaceXApiService.getInitialList().then(
       (resp: any) => {
-        console.log(resp);
+        // console.log(resp);
         for (let i = 0; i < resp.body.length; i++) {
 
-          console.log("obj ", resp.body[i])
+          // console.log("obj ", resp.body[i])
 
           let obj: any = {};
           obj.flight_number = resp.body[i].flight_number;
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
           this.spaceXLaunchList.push(obj);
         }
-        console.log(this.spaceXLaunchList);
+        // console.log(this.spaceXLaunchList);
         //  this.spaceXLaunchList = resp;
       }
     ).catch(

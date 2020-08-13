@@ -47,13 +47,13 @@ export class SideBarComponent implements OnInit {
   getFilteredList() {
     this.spaceXApiService.getFilteredList(this.currentSelectedYear, this.successfulLaunchFlag, this.successfulLandingFlag).then(
       (resp: any) => {
-        console.log(resp);
+        //    console.log(resp);
 
         this.filteredSpaceXLaunchList = [];
 
         for (let i = 0; i < resp.body.length; i++) {
 
-          console.log("obj ", resp[i])
+          //          console.log("obj ", resp[i])
 
           let obj: any = {};
           obj.flight_number = resp.body[i].flight_number;
@@ -66,7 +66,7 @@ export class SideBarComponent implements OnInit {
 
           this.filteredSpaceXLaunchList.push(obj);
         }
-        console.log("filteredSpaceXLaunchList ", this.filteredSpaceXLaunchList);
+        //    console.log("filteredSpaceXLaunchList ", this.filteredSpaceXLaunchList);
 
         this.returnFilteredListEvent.emit(this.filteredSpaceXLaunchList);
         //  this.spaceXLaunchList = resp;

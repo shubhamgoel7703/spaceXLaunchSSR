@@ -1,6 +1,7 @@
 .image-container {
-    height: 170px;
+    height: 180px;
     width: 100%;
+background-color: #F4F4F4;
     /* object-fit: cover; */
  
 }

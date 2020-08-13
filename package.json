@@ -28,7 +28,8 @@
     "serve:prerender": "cd dist/browser && http-server",
     "serve:ssr": "node dist/server",
     "start:heroku": "node dist/server",
-    "postinstall": "npm run build:ssr"
+    "postinstall": "npm run build:ssr",
+    "heroku-postbuild": "ng build --prod && npm run build:ssr"
   },
   "pre-commit": [],
   "private": true,
